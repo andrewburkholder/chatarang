@@ -5,55 +5,53 @@ import MessageList from './MessageList'
 import MessageForm from './MessageForm'
 
 class Chat extends Component {
-    constructor () {
-        super()
+  constructor() {
+    super()
 
-        this.state = {
-            messages: [
-                {id: 1,
-                user: {
-                    uid: 'kdjkjfkdjf',
-                    displayName: "Andrew",
-                    email: 'hi@andrew.vip'
-                },
-                body: 'Chatting up a storm, yo!'
-                },
-        
-                {id: 2,
-                user: {
-                    uid: 'kdj23jkdjf',
-                    displayName: "Davey",
-                    email: 'davey@fretless.com'
-                },
-                body: 'Too much chatting.'
-                }
-            ]
-        }
+    this.state = {
+      messages: [
+        {
+          id: 1,
+          user: {
+            uid: 'sdfs34849327',
+            displayName: 'Davey',
+            email: 'davey@fretless.com',
+          },
+          body: 'Chatting up a storm, yo!',
+        },
+
+        {
+          id: 2,
+          user: {
+            uid: 'sdlfkj35948',
+            displayName: 'Dana',
+            email: 'dana@fretless.com',
+          },
+          body: 'This guy is so annoying. I hate my job.',
+        },
+      ],
     }
+  }
 
-    addMessage = (body) => {
-        const messages = [...this.state.messages]
-        const user = {
-            uid: 'kdj090jkdjf',
-            displayName: "Stefany",
-            email: 'stephanie@singing.org'
-        }
+  addMessage = (body) => {
+    const messages = [...this.state.messages]
+    const user = this.props.user
 
-        messages.push({
-            id: Date.now(),
-            user,
-            body,
-        })
+    messages.push({
+      id: `${user.uid}-${Date.now()}`,
+      user,
+      body,
+    })
 
-        this.setState({ messages })
-    }
+    this.setState({ messages })
+  }
 
-    render() {
+  render() {
     return (
       <div className="Chat">
         <ChatHeader />
-        <MessageList messages={this.state.messages}/>
-        <MessageForm addMessage={this.addMessage}/>
+        <MessageList messages={this.state.messages} />
+        <MessageForm addMessage={this.addMessage} />
       </div>
     )
   }
