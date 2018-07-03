@@ -31,20 +31,21 @@ class Chat extends Component {
         }
     }
 
-    addMessage = () => {
+    addMessage = (body) => {
         const messages = [...this.state.messages]
+        const user = {
+            uid: 'kdj090jkdjf',
+            displayName: "Stefany",
+            email: 'stephanie@singing.org'
+        }
 
         messages.push({
             id: Date.now(),
-            user: {
-                uid: 'kdj090jkdjf',
-                displayName: "Stefany",
-                email: 'stephanie@singing.org'
-            },
-            body: 'I do not think we\'re chatting too much!',
+            user,
+            body,
         })
 
-        this.setState({ messages: messages })
+        this.setState({ messages })
     }
 
     render() {
