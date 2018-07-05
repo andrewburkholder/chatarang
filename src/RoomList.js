@@ -1,46 +1,59 @@
 import React from 'react'
+import { StyleSheet, css } from 'aphrodite'
 
-const RoomList = (props) => {
-    return(
-        <nav
-        className="RoomList"
-        style={props.styles.children}
-        >
-        <h2>Rooms</h2>
-            <ul>
-                <li><a href="#">general</a></li>
-                <li><a href="#">random</a></li>
-            </ul>
-        </nav>
-    )
+const RoomList = () => {
+  return (
+    <nav
+      className={`RoomList ${css(styles.roomList)}`}
+      style={styles.children}
+    >
+      <h2 className={css(styles.h2)}>
+        Rooms
+      </h2>
+      <ul className={css(styles.list)}>
+        <li className={css(styles.item)}>
+          <a href="#" className={css(styles.link)}>general</a>
+        </li>
+        <li className={css(styles.item)}>
+          <a href="#" className={css(styles.link)}>random</a>
+        </li>
+      </ul>
+    </nav>
+  )
 }
 
-const styles = {
-    ".RoomList h2" : {
-        fontSize: '1rem',
-      },
-      
-      ".RoomList ul" : {
-        listStyle: 'none',
-        marginLeft: 0,
-        paddingLeft: 0,
-      },
-      
-      ".RoomList li" : {
-        marginBottom: '0.5rem',
-      },
-      ".RoomList li a" : {
-        display: 'block',
-        color: 'whitesmoke',
-        textDecoration: 'none',
-      },
-      ".RoomList li a::before" : {
-        content: '# ',
-      },
-      ".RoomList li a:hover" : {
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-      },
-      
-}
+const styles = StyleSheet.create({
+  roomList: {
+    padding: '0 1rem',
+  },
+
+  h2: {
+    fontSize: '1rem',
+  },
+
+  list: {
+    listStyle: 'none',
+    marginLeft: 0,
+    paddingLeft: 0,
+  },
+
+  item: {
+    marginBottom: '0.5rem',
+  },
+
+  link: {
+    display: 'block',
+    color: 'whitesmoke',
+    textDecoration: 'none',
+
+    '::before': {
+      content: '"# "',
+    },
+
+    ':hover': {
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    },
+  },
+})
 
 export default RoomList
