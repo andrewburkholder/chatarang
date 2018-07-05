@@ -1,14 +1,15 @@
 import React from 'react'
+import Avatar from './Avatar';
 
-const UserInfo = (props) => {
+const UserInfo = ({ user }) => {
   return (
     <div
       className="UserInfo"
       style={styles.userInfo}
     >
-      <div className="Avatar"></div>
+      <Avatar user/>
       <div style={styles.user}>
-        {props.user.displayName}
+        {user.displayName}
       </div>
       <a href="#">
         <i className="fas fa-sign-out-alt"></i>
