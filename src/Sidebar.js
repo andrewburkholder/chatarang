@@ -1,4 +1,5 @@
 import React from 'react'
+import RoomList from './RoomList';
 
 const Sidebar = (props) => {
   return (
@@ -19,16 +20,7 @@ const Sidebar = (props) => {
         </a>
       </div>
       <h1 style={styles.h1}>XTBC 18</h1>
-      <nav
-        className="RoomList"
-        style={styles.children}
-      >
-        <h2>Rooms</h2>
-        <ul>
-          <li><a href="#">general</a></li>
-          <li><a href="#">random</a></li>
-        </ul>
-      </nav>
+      <RoomList />
     </aside>
   )
 }
