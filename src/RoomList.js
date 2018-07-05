@@ -1,10 +1,10 @@
 import React from 'react'
 
-const RoomList = () => {
+const RoomList = (props) => {
     return(
         <nav
         className="RoomList"
-        /* style={styles.children} */
+        style={props.styles.children}
         >
         <h2>Rooms</h2>
             <ul>
