@@ -1,5 +1,6 @@
 import React from 'react'
 import Avatar from './Avatar';
+import SignOutButton from './SignOutButton';
 
 const UserInfo = ({ user }) => {
   return (
@@ -11,9 +12,7 @@ const UserInfo = ({ user }) => {
       <div style={styles.user}>
         {user.displayName}
       </div>
-      <a href="#">
-        <i className="fas fa-sign-out-alt"></i>
-      </a>
+      <SignOutButton />
     </div>
   )
 }
