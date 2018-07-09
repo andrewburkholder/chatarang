@@ -18,6 +18,7 @@ class Chat extends Component {
     Rebase.syncState(`messagelist`, {
       context: this,
       state: 'messages',
+      asArray: true,
     });
   }
 
