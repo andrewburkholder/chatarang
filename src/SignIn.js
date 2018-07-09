@@ -39,12 +39,9 @@ class SignIn extends Component {
                     className={css(styles.form)}
                     onSubmit={this.handleSubmit}
                   >
-                    <label
-                      htmlFor="email"
-                      className={css(styles.label)}
-                    >
-                      Email
-                    </label>
+               
+                    <input className={css(styles.input)} onChange={this.handleChange} value={this.state.displayName} name='displayName' type='text' placeholder='Enter your name' />
+                    <div />
                     <input
                       autoFocus
                       type="email"
@@ -52,6 +49,7 @@ class SignIn extends Component {
                       className={css(styles.input)}
                       value={this.state.email}
                       onChange={this.handleChange}
+                      placeholder="Enter your email address"
                     />
                     <button
                       type="submit"
