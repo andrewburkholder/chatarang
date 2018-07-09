@@ -12,7 +12,8 @@ class SignIn extends Component {
     auth
       .signInWithPopup(provider)
       .then(result => {
-        this.props.handleLogin(result.user)
+        this.props.handleLogin(result)
+        console.log(result)
       })
   }
 
