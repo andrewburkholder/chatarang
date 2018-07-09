@@ -15,10 +15,14 @@ class SignIn extends Component {
         this.setState({[name]: target.value})
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-        this.props.handleLogin(this.state.displayName, this.state.email)
-    }
+    handleSubmit = (ev) => {
+        ev.preventDefault()
+        this.props.handleLogin({
+          uid: `${this.state.email}-ksdfjhu32472398`,
+          displayName: this.state.displayName,
+          email: this.state.email,
+        })}
+
     render() {
     return (
         <form onSubmit={this.handleSubmit}>
