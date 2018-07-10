@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Sidebar from './Sidebar'
 import Chat from './Chat'
+import base from './base'
 
 class Main extends Component {
   state = {
@@ -26,6 +27,18 @@ class Main extends Component {
         description: 'Cat GIFs, etc.',
       },
     },
+  }
+
+  componentDidMount(){
+    this.roomsRef = base.syncState(`rooms`, {
+      context: this,
+      state: 'rooms',
+      asArray: true,
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.roomsRef)
   }
 
   render () {
