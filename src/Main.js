@@ -31,6 +31,13 @@ class Main extends Component {
     base.removeBinding(this.roomsRef)
   }
 
+  addRoom = room => {
+    const rooms = {...this.state.rooms}
+    room[room.name] = room
+    
+    this.setState({ room })
+  }
+
   setCurrentRoom = roomName => {
     const room = this.state.rooms[roomName]
     this.setState({ room })

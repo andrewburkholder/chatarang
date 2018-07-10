@@ -37,6 +37,17 @@ class Chat extends Component {
       context: this,
       state: 'messages',
       asArray: true,
+      defaultValue: {
+        body: '',
+        id: '',
+        key: '',
+        user: {
+          displayName: '',
+          email: '',
+          photoUrl: '',
+          uid: '',
+        }
+      }
     })
 }
 
