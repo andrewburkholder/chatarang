@@ -2,15 +2,15 @@ import React from 'react'
 import RoomList from './RoomList';
 import UserInfo from './UserInfo';
 
-const Sidebar = (props) => {
+const Sidebar = ({user, signOut, rooms}) => {
   return (
     <aside
       className="Sidebar"
       style={styles.sidebar}
     >
-      <UserInfo styles user={props.user} signOut={props.signOut}/>
+      <UserInfo styles user={user} signOut={signOut}/>
       <h1 style={styles.h1}>XTBC 18</h1>
-      <RoomList styles/>
+      <RoomList styles rooms={rooms}/>
     </aside>
   )
 }
