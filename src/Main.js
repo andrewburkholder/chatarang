@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Sidebar from './Sidebar'
 import Chat from './Chat'
+import RoomForm from './RoomForm'
 import base from './base'
 
 class Main extends Component {
@@ -14,17 +15,20 @@ class Main extends Component {
     rooms: {},
   }
 
-  componentDidMount(){
-    this.roomsRef = base.syncState(`rooms`, {
-      context: this,
-      state: 'rooms',
-      defaultValue: {
-        general: {
-          name: 'general',
-          description: 'Chat about whatever',
-        },
-      },
-    });
+  componentDidMount() {
+    this.roomsRef = base.syncState(
+      'rooms',
+      {
+        context: this,
+        state: 'rooms',
+        defaultValue: {
+          general: {
+            name: 'general',
+            description: 'Chat about whatever',
+          },
+        }
+      }
+    )
   }
 
   componentWillUnmount() {
@@ -33,9 +37,9 @@ class Main extends Component {
 
   addRoom = room => {
     const rooms = {...this.state.rooms}
-    room[room.name] = room
-    
-    this.setState({ room })
+    rooms[room.name] = room
+
+    this.setState({ rooms })
   }
 
   setCurrentRoom = roomName => {
@@ -43,11 +47,20 @@ class Main extends Component {
     this.setState({ room })
   }
 
-  render () {
+  render() {
     return (
       <div className="Main" style={styles}>
-        <Sidebar user={this.props.user} signOut={this.props.signOut} rooms={this.state.rooms} setCurrentRoom={this.setCurrentRoom}/>
-        <Chat user={this.props.user} room={this.state.room}/>
+        <RoomForm addRoom={this.addRoom} />
+        {/* <Sidebar
+          user={this.props.user}
+          signOut={this.props.signOut}
+          rooms={this.state.rooms}
+          setCurrentRoom={this.setCurrentRoom}
+        />
+        <Chat
+          user={this.props.user}
+          room={this.state.room}
+        /> */}
       </div>
     )
   }

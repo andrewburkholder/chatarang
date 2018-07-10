@@ -1,26 +1,33 @@
 import React, { Component } from 'react'
 
 class RoomForm extends Component {
-state = {
+  state = {
     room: {
-        name: '',
-        description: '',
-    }
-}
+      name: '',
+      description: '',
+    },
+  }
 
-handleChange = ev => {
+  handleChange = ev => {
     const room = {...this.state.room}
     room[ev.target.name] = ev.target.value
 
     this.setState({ room })
-}
+  }
 
-render() {
+  handleSubmit = ev => {
+    ev.preventDefault()
+    this.props.addRoom(this.state.room)
+  }
+
+  render() {
     return (
       <div className="RoomForm">
         <main>
           <h2>Create a room</h2>
-          <form>
+          <form
+            onSubmit={this.handleSubmit}
+          >
             <p>
               <label htmlFor="name">
                 Room Name
@@ -31,6 +38,7 @@ render() {
                 type="text"
                 name="name"
                 value={this.state.room.name}
+                onChange={this.handleChange}
               />
             </p>
 
@@ -42,6 +50,7 @@ render() {
                 type="text"
                 name="description"
                 value={this.state.room.description}
+                onChange={this.handleChange}
               />
             </p>
             <div>
