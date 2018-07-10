@@ -11,29 +11,19 @@ class Main extends Component {
       description: 'Ask questions and share code',
     },
 
-    rooms: {
-      s3afternoon: {
-        name: 's3afternoon',
-        description: 'Ask questions and share code',
-      },
-
-      general: {
-        name: 'general',
-        description: 'Chat about whatever',
-      },
-
-      random: {
-        name: 'random',
-        description: 'Cat GIFs, etc.',
-      },
-    },
+    rooms: {},
   }
 
   componentDidMount(){
     this.roomsRef = base.syncState(`rooms`, {
       context: this,
       state: 'rooms',
-      asArray: true,
+      defaultValue: {
+        general: {
+          name: 'general',
+          description: 'Chat about whatever',
+        },
+      },
     });
   }
 
